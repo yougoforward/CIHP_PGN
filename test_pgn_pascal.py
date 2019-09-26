@@ -112,8 +112,8 @@ def main():
 
     raw_output = tf.reduce_mean(tf.stack([parsing_out1, parsing_out2]), axis=0)
     head_output, tail_output = tf.unstack(raw_output, num=2, axis=0)
-    tail_list = tf.unstack(tail_output, num=20, axis=2)
-    tail_list_rev = [None] * 20
+    tail_list = tf.unstack(tail_output, num=7, axis=2)
+    tail_list_rev = [None] * 7
     for xx in range(7):
         tail_list_rev[xx] = tail_list[xx]
 

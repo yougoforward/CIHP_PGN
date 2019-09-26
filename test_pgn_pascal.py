@@ -187,7 +187,7 @@ def main():
             print(image_list[step])
         img_split = image_list[step].split('/')
         img_id = img_split[-1][:-4]
-
+        print(parsing_.shape)
         # msk = decode_labels(parsing_, num_classes=N_CLASSES)
         # parsing_im = Image.fromarray(msk[0])
         border_thick=1

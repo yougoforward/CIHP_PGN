@@ -20,7 +20,7 @@ LOG_DIR = './logs/Pascal_pgn'
 
 N_CLASSES = 7
 INPUT_SIZE = (512, 512)
-BATCH_I = 1
+BATCH_I = 5
 BATCH_SIZE = BATCH_I * len(gpus)
 SHUFFLE = True
 RANDOM_SCALE = True

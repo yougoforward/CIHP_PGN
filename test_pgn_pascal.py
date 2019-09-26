@@ -195,7 +195,9 @@ def main():
         beta=0.5
         ori_img = cv2.imread(DATA_DIR+'/images/'+img_id+'.jpg')
         ori_img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2RGB)
-        parsing_im = Image.fromarray(parsing_[0,:,:,0])
+        parsing_=parsing_[0,:,:,0]
+        print(parsing_)
+        parsing_im = Image.fromarray(parsing_)
         palette_part = [0, 0, 0,
                         255, 0, 0,
                         0, 255, 0,

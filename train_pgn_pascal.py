@@ -7,7 +7,7 @@ import random
 from utils import *
 
 # Set gpus
-gpus = [0] 
+gpus = [0,1,2,3]
 os.environ["CUDA_VISIBLE_DEVICES"]=','.join([str(i) for i in gpus])
 num_gpus = len(gpus) # number of GPUs to use
 

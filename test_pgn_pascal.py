@@ -223,7 +223,7 @@ def main():
             cv2.drawContours(sys_img_part, contours, -1, palette_part_c[i * 3:(i + 1) * 3].tolist(), border_thick,
                              cv2.LINE_AA)
         sys_img_part = cv2.cvtColor(sys_img_part, cv2.COLOR_RGB2BGR)
-        cv2.imwrite('{}/{}_vis.png', sys_img_part)
+        cv2.imwrite('{}/{}_vis.png'.format(parsing_dir, img_id), sys_img_part)
 
         # parsing_im.save('{}/{}_vis.png'.format(parsing_dir, img_id))
         cv2.imwrite('{}/{}.png'.format(parsing_dir, img_id), parsing_[0, :, :, 0])

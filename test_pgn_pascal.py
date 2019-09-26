@@ -195,9 +195,9 @@ def main():
         beta=0.5
         ori_img = cv2.imread(DATA_DIR+'/images/'+img_id+'.jpg')
         ori_img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2RGB)
-        parsing_=np.asarray(parsing_[0,:,:,0], np.uint8)
+        seg=np.asarray(parsing_[0,:,:,0], np.uint8)
         print(parsing_)
-        parsing_im = Image.fromarray(parsing_)
+        parsing_im = Image.fromarray(seg)
         palette_part = [0, 0, 0,
                         255, 0, 0,
                         0, 255, 0,
@@ -215,10 +215,10 @@ def main():
         parsing_im.putpalette(palette_part)
         seg_part = np.asarray(parsing_im.convert('RGB'), np.uint8)
         sys_img_part = cv2.addWeighted(ori_img, alpha, seg_part, beta, 0.0)
-        sys_img_part[parsing_ == 0] = ori_img[parsing_ == 0]
+        sys_img_part[seg == 0] = ori_img[seg == 0]
         for i in range(1, 7):
-            mask = np.zeros_like(parsing_)
-            mask[parsing_ == i] = 1
+            mask = np.zeros_like(seg)
+            mask[seg == i] = 1
             contours = cv2.findContours(mask.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)[-2]
             cv2.drawContours(sys_img_part, contours, -1, palette_part_c[i * 3:(i + 1) * 3].tolist(), border_thick,
                              cv2.LINE_AA)

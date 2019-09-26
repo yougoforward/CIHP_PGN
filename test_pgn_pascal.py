@@ -196,7 +196,7 @@ def main():
         ori_img = cv2.imread(DATA_DIR+'/images/'+img_id+'.jpg')
         ori_img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2RGB)
         seg=np.asarray(parsing_[0,:,:,0], np.uint8)
-        print(parsing_)
+        # print(parsing_)
         parsing_im = Image.fromarray(seg)
         palette_part = [0, 0, 0,
                         255, 0, 0,

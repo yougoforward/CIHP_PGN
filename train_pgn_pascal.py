@@ -225,7 +225,7 @@ def main():
         print(" [!] Load failed...")
         # Load variables if the checkpoint is provided.
         if restore_from is not None:
-            restore_var = [v for v in tf.global_variables() if 'fc' not in v.name]
+            restore_var = [v for v in tf.global_variables() if ('fc' not in v.name) and ('edge' not in v.name) and ('Momentum' not in v.name) and ('parsing' not in v.name)]
             loader = tf.train.Saver(var_list=restore_var)
             loader.restore(sess, restore_from)
             print("Restored model parameters from {}".format(restore_from))

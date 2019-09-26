@@ -124,7 +124,7 @@ def read_labeled_image_reverse_list(data_dir, data_list):
     masks_rev = []
     for line in f:
         try:
-            image, mask, mask_rev = line.strip("\n").split(' ')
+            image, mask, mask_rev = line.strip("\n").split('\t')
         except ValueError: # Adhoc for test.
             image = mask = mask_rev = line.strip("\n")
         images.append(data_dir + image)
@@ -171,7 +171,7 @@ def read_images_from_disk(input_queue, input_size, random_scale, random_mirror=F
     label = tf.image.decode_png(label_contents, channels=1)
     label_rev = tf.image.decode_png(label_contents_rev, channels=1)
 
-    edge = tf.image.decode_png(edge_contents, channels=1)
+    edge = tf.image.decode_png(edge_contents, channels=1)/255
 
     if input_size is not None:
         h, w = input_size
